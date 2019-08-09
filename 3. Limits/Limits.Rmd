@@ -1,0 +1,244 @@
+---
+title: "Limits"
+date: "August 2018"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Intro
+
+__A limit__ describes the behavior of a function, sequence, or series of numbers as it approaches a given value.
+
+A limit of a sequence $x_i$ is a number $L$ such that $lim_{i\to\infty} x_i = L$ ("the limit of $x_i$ as i approaches infinity is L"). 
+
+More formally, one can choose any tiny number $\epsilon > 0$ and find an N such that, for all $i > N$ (i.e., for all elements of the sequence further along than is N), $|L-x_1| < \epsilon$.
+
+We say a sequence (or series, or function) __converges__ if it has a __finite limit__, and __diverges__ if it either has __no limit__ or has __a limit of $\pm\infty$__.
+
+----
+
+## Examples
+
+The sequence ${i}_{i=1}^{\infty}$ gets larger and larger forever and approaches infinity, so it diverges.
+
+In contrast, the sequence $(\frac {3} {10^i})_{i=1}^{\infty}$ gets smaller and smaller, approaching zero as $i \rightarrow \infty$.
+
+$lim_{x\to 5} \frac {x^2 - 25} {x-5} = \frac {(x+5)(x-5)}{x-5} = x + 5 = 10$. The limit of function exists only if the left and right limits are equal to the same value. Hint: calculate the limit for 4.999 and 5.001 - you will get a result that is very close to 10. 
+
+----
+
+Let $$h(y) = \begin{cases} 
+      5 & y \leq 3 \\
+      8 & y > 3
+   \end{cases}$$
+
+We can show that the limit of h(x) does not exist. The right limit is $lim_{x\to (3+)} h(y) = 8$ and the left limit is $lim_{x\to (3-)} h(y) = 5$. Here, we observe that $lim_{x\to (3+)} h(y) \neq lim_{x\to (3-)} h(y)$. Therefore, $lim_{x\to (3)} h(y)$ does not exist. The point $y =3$ is point of discontinuity. 
+
+----
+
+## Why is it useful?
+
+- The limit of a function can help us determine what the rate of change of the function is. 
+
+- Knowing the rate of change is useful in both statistics and formal models. The utility of the limit of a function in determining the rate at which independent variables affect dependent variables.
+
+- Understanding limits helps us to understand the strategic logic of repeated behavior - calculating discounted payoffs.
+
+- Limits are also a building block in several other concepts that are frequently used in political science. The first is the maximum or minimum of a function. More specifically, the limit is a stepping stone to understanding derivatives, and derivatives are used to find maximum and minimum values of a function.
+
+----
+
+## An interesting fact - limits and the number e
+
+Consider the following special limit:
+
+$lim_{x\to\infty} (1 + \frac {1}{x})^x$. 
+
+There is no clear-cut way to go about solving this limit. But let's plug in bigger and bigger values of x and see what happens. 
+
+For very large values of x, it appears that $(1 + \frac {1}{x})^x$ converges to the irrational number 2.718281... This number is a very important number in mathematics. Like the number $\pi$, it is so important that it has his own name: $e$.
+
+So, $lim_{x\to\infty} (1 + \frac {1}{x})^x = 2.718281...=e$. 
+
+----
+
+## Properties of limits 
+
+The limit of the sum (or difference) of functions is equal to the sum (or difference) of the limits of each function:
+
+- $lim_{x\to c} (f(x) + g(x)) = lim_{x\to c} f(x) + lim_{x\to c} g(x)$.
+
+
+- $lim_{x\to c} (f(x) - g(x)) = lim_{x\to c} f(x) - lim_{x\to c} g(x)$.
+
+The limit of a product (or quotient) of functions is equal to the product (or quotient) of the limits of each function:
+
+- $lim_{x\to c} (f(x) \cdot g(x)) = (lim_{x\to c} f(x)) \cdot (lim_{x\to c} g(x))$.
+
+
+- $lim_{x\to c} (f(x) / g(x)) = (lim_{x\to c} f(x)) / (lim_{x\to c} g(x))$.
+
+----
+
+The limit of a constant k is simply the constant itself:
+
+- $lim_{x\to c} k = k$.
+
+The limit of a product of a constant and a function is the product of the constant and the limit of the function:
+
+- $lim_{x\to c} [kf(x)] = klim_{x\to c} f(x)$.
+
+----
+
+
+## Open, closed, compact, and convex sets
+
+__An open set__ is one in which there is some distance (which may be arbitrarily small) that you may move in any direction within the set and stay in the set. The modal example for an open set is $(0, 1)$.
+
+__A closed set__ is one that contains all its limit points. It means that if you make a sequence with all its elements contained in a set A, then for a closed set the limit of this sequence must also be in A. A set that is not closed, in contrast, can have the point the sequence approaches - __the set's limit point__ - outside the set, even if all prior points in the sequence are in the set.
+Example: the set $[0,1]$ for a sequence with elements $x_i = \frac {1}{i}$ or $x_i = 1 - \frac {1}{i}$.
+
+__The complement of a closed set__ is everything outside the closed set. In this case, the complement of $[0, 1]$ is $(-\infty, 0) \cup (1, \infty)$, which is the union of two open sets, which is open.
+
+----
+
+One can get from an open (or other) set to a closed set by adding all the original set's limit points into the set.
+
+A subset of $\mathbf{R}_n$ that is both closed and bounded - that is, the set contains all its limit points and can itself be contained within some finite boundary - is called __compact__. Compact sets are in some sense self-contained: they don't go on forever, either by having no bound or by containing sequences that don't stay in the set in the limit. These properties help ensure that continuous functions defined over compact sets have nice properties, notably maxima and minima that are present in the set.
+
+Finally, a subset of $\mathbf{R}_n$ for which every pair of points in the set is joined by a straight line that is also in the set is called __a convex set__. The __convex hull__ of a set A is the set A plus all the points
+needed to make A convex.
+
+----
+
+## Continuous functions
+
+__A continuous function__ is one for which an arbitrarily small change in x causes an arbitrarily small change in y for all values of x. The graph of a __continuous function__ forms an unbroken curve (i.e. we do not lift the pencil off the paper), whereas the graph of a __discontinuous function__ has at least one break in it.
+
+$f(x)$ is continuous at $x = c$ if and only if $lim_{x\to c} f(x) = f(c)$. A function that is continuous at all points c in its domain is called continuous.
+
+Examples: 
+
+$f(x) = \frac {1}{x}$ is not continuous over the domain $\mathbf{R}$, since no limit exist at zero.
+
+$f(x) = \frac {x^2} {x}$ is undefined at x = 0. The discontinuity is easy to remove; all we have to do is to define the function piecewise: $y = 0$ at $x=0$ and $y=\frac {x^2} {x}$ at $x \neq 0$. This way, the function becomes continuous.
+
+----
+
+## Importance
+
+Continuity is perhaps one of the most central concepts you will encounter, for much the same reason that compactness proves useful: it helps us to maximize (or minimize) functions, and maximizing (or minimizing) functions is important in both game theory and statistics.
+
+if a function is not continuous, there are points where it does not have a limit, and that means that the function is not differentiable (i.e., has no derivative) at those points. 
+
+If one were not to limit one's theory to continuous functions, then one would be asserting that the theory is relevant to functions that have points over which the derivative is undefined, and then appealing to the derivative to substantiate one's result (or hypothesis). Doing so would be contradictory.
+
+----
+
+## Exercises 
+
+1. Show whether $f(x) = \frac {3x^2 - 12}{x-2}$ has a limit at $x=2$ and, if so, the value of the limit. 
+
+----
+
+## Solution
+
+First start by factoring the numerator. We can pull out a 3 to get $3(x^2 - 4)$ and then factor the term in the parantheses to get $3(x + 2)(x - 2)$. The $(x-2)$ on top and bottom cancel, leaving $3(x+2)$. This has a definite value at $x = 2$, which is $12$. Thus, the limit exists and is equal to 12. 
+
+----
+
+2. For each of the following sets, state whether they are (a) open, closed, both, or neither; (b) bounded; (c) compact; (d) convex.
+
+a) $[1, 3]$.
+b) $[0, \infty)$.
+
+-----
+
+## Solution
+
+a) (a) closed, (b) bounded, (c) compact, (d) convex.
+b) (a) closed (its complement is open), (b) not bounded (it goes off to infinity without bound, (c) not compact (because it's not bounded), (d) convex (it contains all lines between any two points). 
+
+----
+
+3. Is the function $$f(x) = \begin{cases} 
+      x^3 - 3x + 4 & x\leq 3 \\
+      x^2 & x > 3
+   \end{cases}$$ continuous? If so, why? If not, what changes would make it continuous?
+
+----
+
+## Solution
+
+This function is not continuous because it has the value 22 at x = 3, but approaches 9 as it approaches x = 3 from the right. One could make it continuous by either subtracting 13 from the equation for all $x \leq 3$ (to get $x^3 - 3x - 9$), or by adding 13 to the equation for all $x > 3$ (to get $x^2 + 13$). 
+
+----
+
+4. Calculate: $lim_{x\to 5} \frac {1} {(x-5)^2}$.
+
+----
+
+## Solution
+
+At x = 5, the function is increasing towards $\infty$ on both the left and the right. Since the left and the right limits both approach $\infty$, the limit exists, and $lim_{x\to 5} \frac {1} {(x-5)^2} = \infty$.
+
+----
+
+5. Solve $lim_{x\to 3} (5x - 7)(2x + 1)$.
+
+----
+
+We will use the properties of the limits to derive the answer:
+
+$lim_{x\to 3} (5x - 7)(2x + 1) = lim_{x\to 3} (5x - 7) \cdot lim_{x\to 3} (2x + 1)$.
+
+$= [lim_{x\to 3} (5x) - lim_{x\to 3} (7)] \cdot [lim_{x\to 3} (2x) + lim_{x\to 3} (1)]$.
+
+$= [5(3)-7][2(3)+1] = 56$. 
+
+This logis is precisely the same as plugging $x=3$ directly into $(5x - 7)(2x + 1)$.
+
+----
+
+6. Let $f(x) = x^2 + 3x + 7$. Solve the following limit: 
+$lim_{a\to x} \frac {f(x) - f(a)} {x-a} = lim_{a\to x} \frac {(x^2 + 3x + 7) - (a^2 + 3a + 7)} {x-a}$.
+
+----
+
+We begin by simplifying this expression as much as possible. First we distribute the negative sign.
+$lim_{a\to x} \frac {(x^2 + 3x + 7 - a^2 - 3a - 7)} {x-a}$.
+
+We cancel the 7s.
+
+$lim_{a\to x} \frac {(x^2 + 3x - a^2 - 3a)} {x-a}$.
+
+And we combine the like terms,
+
+$lim_{a\to x} \frac {(x^2 - a^2)+ 3(x - a)} {x-a}$.
+
+----
+
+Recall that the difference of squares $(x^2 - a^2)$ simplifies to $(x-a)(x+a)$.
+
+$lim_{a\to x} \frac {(x - a) (x+a+3)} {x-a} = lim_{a\to x}(x+a+3) = 2x + 3$.
+
+In fact, as we wil see later, the expression $lim_{a\to x} \frac {f(x) - f(a)} {x-a}$ is the definition of a derivative: a function that represents the slope of a function f(x) at any particular point x. In this example, $2x + 3$ is the derivative of $f(x) = x^2 + 3x + 7$. 
+
+----
+
+7. Solve $lim_{x\to\infty} \frac {6x^3 + 7x^2 + 2}{3x^3 + 1}$.
+
+----
+
+We want to divide all the terms by $x^3$ in order to put x in the denominator of fractions:
+
+$lim_{x\to\infty} \frac {(6x^3 + 7x^2 + 2) \cdot \frac {1}{x^3}}{(3x^3 + 1) \cdot \frac {1}{x^3}}$.
+
+$=lim_{x\to\infty} \frac {(6 + (\frac {7}{x}) + (\frac {2}{x^3}))} {3 + (\frac {1}{x^3})}$.
+
+$=\frac {6}{3} = 2$.
+
+
